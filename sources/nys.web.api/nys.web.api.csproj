@@ -60,9 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\shared\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AutofacModule.cs" />
     <Compile Include="NamesModule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DomainAvailabilityCheck\DnsResolveAvailabilityCheck.cs" />
     <Compile Include="Services\DomainAvailabilityCheck\IDomainAvailabilityCheckService.cs" />
     <Compile Include="Services\DomainAvailabilityCheck\WhoisDomainAvailabilityCheck.cs" />

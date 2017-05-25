@@ -40,13 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\shared\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ApplicationEnvironment.cs" />
     <Compile Include="ApplicationExtensions.cs" />
     <Compile Include="AssemblyExtensions.cs" />
     <Compile Include="Constants\Configuration.cs" />
     <Compile Include="Constants\Namespace.cs" />
     <Compile Include="Constants\Routing.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
