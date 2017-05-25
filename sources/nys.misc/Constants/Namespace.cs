@@ -2,6 +2,6 @@
 {
     public static class Namespace
     {
-        public const string AssemblyNamePrefix = "kovalevskaya.design.";
+        public const string AssemblyNamePrefix = "nys.";
     }
 }

@@ -4,8 +4,38 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
 <h2> haiio!</h2>
+    
+<div class="row">
+    <div class="col-xs-12 items-container">
+        
+    </div>
+    <button id="loadMore" type="btn btn-lg btn-primary">Get more</button>
+</div>
+    
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        load();
+
+        $("#loadMore").click(function() { load(); });
+    });
+
+
+    function load() {
+        for (var i = 0; i < 5; i++) {
+            $.post("/api/v1/names", function (data) {
+                console.log(data);
+                $(".items-container").append("<p>" + data + "</p>");
+            });
+        }
+    }
+</script>
+
 </body>
 </html>

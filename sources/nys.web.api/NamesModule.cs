@@ -1,17 +1,18 @@
 ﻿using nys.misc.Constants;
+using nys.web.api.Services.NameGenerator;
+using nys.web.api.Services.WordVariants;
 using Nancy;
 
 namespace nys.web.api
 {
     public class NamesModule : NancyModule
     {
-        public NamesModule(): base(Routing.ApiV1.Base + "/names")
+        public NamesModule(INameGeneratorService generatorService): base(Routing.ApiV1.Base + "/names")
         {
-            Get["/"] = _ =>
+            Post["/", true] = async (ctx, ct)  =>
             {
-
-
-                return Negotiate.WithStatusCode(HttpStatusCode.OK);
+                var name = await generatorService.Generate();
+                return Negotiate.WithStatusCode(HttpStatusCode.OK).WithModel(name);
             };
         }
     }
