@@ -1,0 +1,69 @@
+variables:  
+  PACKAGE_PATH: "/sources/nys.selfhosted/bin/Release/"
+  REMOTE_USER: "root"
+  REMOTE_HOST: "avagroup.ru"  
+  REMOTE_APP_BIN_PATH: "/var/www/nancy-nys"  
+  REMOTE_APP_SUPERVISOR: "nancy-nys" 
+ 
+stages:
+ - build 
+ - deploy
+ - verify
+
+build:
+ stage: build
+ only:
+  - master
+  - develop
+ tags: 
+  - mono
+  - deb
+ before_script:
+  - echo 'Checking the requirements...'
+  - command -v mono >/dev/null 2>&1 || { echo >&2 "mono is required. Aborting."; exit 1; }
+  - command -v xbuild >/dev/null 2>&1 || { echo >&2 "xbuild is required. Aborting."; exit 1; }
+  - command -v nuget >/dev/null 2>&1 || { echo >&2 "nuget is required. Aborting."; exit 1; }
+ script:  
+  - echo '- restore nuget packages'
+  - cd sources
+  - nuget restore -NonInteractive  
+  - echo '- build solution'
+  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" nys.sln
+  - mkdir -p "$CI_PROJECT_DIR/build/app"
+  - mv $CI_PROJECT_DIR$PACKAGE_PATH* $CI_PROJECT_DIR/build/app/
+ artifacts:
+  name: "app_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}_${CI_BUILD_REF}"
+  when: on_success
+  expire_in: 1 week
+  paths:
+   - build/app
+
+
+deploy_app:
+ stage: deploy
+ only:
+  - master
+ tags:
+  - ssh
+  - mono
+ environment: production
+ script:
+  - echo 'Deployment of the main package started'
+  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl stop $REMOTE_APP_SUPERVISOR"
+  - echo 'Copy app to remote server...'
+  - rsync -zaIvc --stats $CI_PROJECT_DIR/build/app/ $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_BIN_PATH
+  # - ssh $REMOTE_USER@$REMOTE_HOST "exit 1" && echo $?;
+  - ssh $REMOTE_USER@$REMOTE_HOST "chown -R www-data:www-data $REMOTE_APP_BIN_PATH" && echo $?;
+  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl start $REMOTE_APP_SUPERVISOR" && echo $?;
+
+
+verify_api_status:
+ stage: verify
+ only:
+  - master
+ tags:
+  - ssh
+  - mono
+ environment: production
+ script:
+  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl status $REMOTE_APP_SUPERVISOR | grep -q 'RUNNING'" && echo $?;  
