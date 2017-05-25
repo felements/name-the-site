@@ -1,41 +1,68 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Helps to generate the unique name for your new web site.">
+    <meta name="author" content="aska.one">
+    <meta name="title" content="Name for your site | aska.one">
+    <meta name="keywords" content="site name,generate,generator,name generator,">
     
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="~/content/img/lightbulb-4.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/content/css/cover.css">
 </head>
 <body>
-<h2> haiio!</h2>
-    
-<div class="row">
-    <div class="col-xs-12 items-container">
-        
-    </div>
-    <button id="loadMore" type="btn btn-lg btn-primary">Get more</button>
-</div>
-    
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        load();
 
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <a href="https://aska.one"><h3 class="masthead-brand">aska.one</h3></a>
+                </div>
+            </div>
+            <div class="inner cover">
+                <h1 class="cover-heading">Get <br/><small>the <u>unique</u> name for your site <br/>just in one minute!</small></h1>
+                
+                <div class="items-container"></div>
+                
+                <p class="lead">
+                    <button id="loadMore" type="button" class="btn btn-lg btn-secondary">Get more</button>
+                </p>
+            </div>
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Powered by <a href="https://aska.one" target="_blank">aska.one</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ajaxStop(function () { $("#loadMore").text("Get more").prop("disabled", false); });
+    $(document).ajaxStart(function () { $("#loadMore").text("We are thinking...").prop("disabled", true); });
+
+    $(document).ready(function() {
+        load();
         $("#loadMore").click(function() { load(); });
     });
 
-
     function load() {
+        $(".items-container").empty();
         for (var i = 0; i < 5; i++) {
-            $.post("/api/v1/names", function (data) {
-                console.log(data);
-                $(".items-container").append("<p>" + data + "</p>");
-            });
+            $.post("/api/v1/names",
+                function(data) {
+                    $(".items-container").append("<p class='lead'>www.<b class='suggestion'>" + data + "</b></p>");
+                });
         }
     }
 </script>
-
 </body>
 </html>
