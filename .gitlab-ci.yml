@@ -40,33 +40,53 @@ build:
   - cd sources
   - nuget restore -NonInteractive  
   - echo '- build solution'
-  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" nys.sln
+  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" alfastroy.sln
   - mkdir -p "$CI_PROJECT_DIR/build/app"
+  - mkdir -p "$CI_PROJECT_DIR/build/config"
   - mv $CI_PROJECT_DIR$PACKAGE_PATH* $CI_PROJECT_DIR/build/app/
+  - cp $CI_PROJECT_DIR$PROD_CONFIG_DIR/* $CI_PROJECT_DIR/build/config/  
  artifacts:
   name: "app_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}_${CI_BUILD_REF}"
   when: on_success
   expire_in: 1 week
   paths:
    - build/app
+   - build/config
 
-
-deploy_app:
+deploy_prod_app:
  stage: deploy
  only:
   - master
  tags:
-  - ssh
-  - mono
+  - deployment  
  environment: production
  script:
   - echo 'Deployment of the main package started'
-  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl stop $REMOTE_APP_SUPERVISOR"
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl is-active  $REMOTE_APP_SVC_NAME >/dev/null 2>&1 && systemctl stop $REMOTE_APP_SVC_NAME || echo 'not running'"
   - echo 'Copy app to remote server...'
-  - rsync -zaIvc --stats $CI_PROJECT_DIR/build/app/ $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_BIN_PATH
-  # - ssh $REMOTE_USER@$REMOTE_HOST "exit 1" && echo $?;
-  - ssh $REMOTE_USER@$REMOTE_HOST "chown -R www-data:www-data $REMOTE_APP_BIN_PATH" && echo $?;
-  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl start $REMOTE_APP_SUPERVISOR" && echo $?;
+  - rsync -zaIvc --stats $CI_PROJECT_DIR/build/app/ $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_APP_BIN_PATH  
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "chown -R www-data:www-data $REMOTE_APP_BIN_PATH" && echo $?;
+ 
+  # https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?tabs=aspnetcore2x
+  - echo 'Apply systemd service config...'
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "find $REMOTE_SYSTEMD_CONFIG -name '$REMOTE_APP_SVC_NAME' -exec rm {} \;";
+  - scp $CI_PROJECT_DIR/build/config/$REMOTE_APP_SVC_NAME $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_SYSTEMD_CONFIG
+  - echo 'Start app...'
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl start $REMOTE_APP_SVC_NAME";
+
+deploy_prod_nginx_config:
+ stage: deploy
+ only:
+  - master
+ tags:
+  - deployment  
+ environment: production
+ script:
+  - echo 'Apply nginx config...'
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "find $REMOTE_NGINX_CONFIG -name '$REMOTE_NGINX_CONFIG_FILE' -exec rm {} \;";
+  - scp $CI_PROJECT_DIR/build/config/$REMOTE_NGINX_CONFIG_FILE $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_NGINX_CONFIG
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "nginx -t | grep -q 'is successful'"  && echo $?;
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "service nginx restart";
 
 
 verify_api_status:
@@ -78,4 +98,5 @@ verify_api_status:
   - mono
  environment: production
  script:
-  - ssh $REMOTE_USER@$REMOTE_HOST "supervisorctl status $REMOTE_APP_SUPERVISOR | grep -q 'RUNNING'" && echo $?;  
+  - echo 'Check if service returns 200 OK'
+  - curl --fail --location $PROD_REMOTE_APP_STATUS_CHECK_URL && echo $?
