@@ -1,10 +1,22 @@
 variables:  
-  PACKAGE_PATH: "/sources/nys.selfhosted/bin/Release/"
-  REMOTE_USER: "root"
-  REMOTE_HOST: "avagroup.ru"  
-  REMOTE_APP_BIN_PATH: "/var/www/nancy-nys"  
-  REMOTE_APP_SUPERVISOR: "nancy-nys" 
- 
+ REMOTE_NGINX_CONFIG: "/etc/nginx/sites-enabled/"
+ REMOTE_NGINX_CONFIG_FILE: "name-your-site.conf"
+ REMOTE_SYSTEMD_CONFIG: "/etc/systemd/system/"
+ REMOTE_USER: "root"
+  
+ REMOTE_APP_BIN_PATH: "/var/www/name-your-startup.site"  
+ REMOTE_APP_SVC_NAME: "name-your-site.service"
+ REMOTE_APP_LOGS_PATH: "/var/www/name-your-startup.site/logs"
+ REMOTE_APP_SUPERVISOR: "name-your-site"
+
+ PACKAGE_PATH: "/sources/nys.selfhosted/bin/Release/"
+
+ # production
+ PROD_CONFIG_DIR: "/deployment/production"
+ PROD_REMOTE_HOST: "name-your-startup.site"
+ PROD_REMOTE_APP_STATUS_CHECK_URL: "https://name-your-startup.site/"
+  
+   
 stages:
  - build 
  - deploy
