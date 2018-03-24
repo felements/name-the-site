@@ -40,7 +40,7 @@ build:
   - cd sources
   - nuget restore -NonInteractive  
   - echo '- build solution'
-  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" alfastroy.sln
+  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" nys.sln
   - mkdir -p "$CI_PROJECT_DIR/build/app"
   - mkdir -p "$CI_PROJECT_DIR/build/config"
   - mv $CI_PROJECT_DIR$PACKAGE_PATH* $CI_PROJECT_DIR/build/app/
