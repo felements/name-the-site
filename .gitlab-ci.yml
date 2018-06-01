@@ -13,8 +13,8 @@ variables:
 
  # production
  PROD_CONFIG_DIR: "/deployment/production"
- PROD_REMOTE_HOST: "name-your-startup.site"
- PROD_REMOTE_APP_STATUS_CHECK_URL: "https://name-your-startup.site/"
+ PROD_REMOTE_HOST: "name-your-site.aska.one"
+ PROD_REMOTE_APP_STATUS_CHECK_URL: "https://name-your-site.aska.one/"
   
    
 stages:
@@ -102,4 +102,4 @@ verify_api_status:
   - curl --fail --location $PROD_REMOTE_APP_STATUS_CHECK_URL && echo $?
 
 
-   ## certbot certonly -a webroot --webroot-path=/var/www/name-your-startup.site  -d name-your-startup.site -d www.name-your-startup.site
+   ## certbot certonly -a webroot --webroot-path=/var/www/name-your-startup.site  -d name-your-site.aska.one -d www.name-your-site.aska.one
