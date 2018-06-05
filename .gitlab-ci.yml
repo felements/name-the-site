@@ -65,13 +65,16 @@ deploy_prod_app:
   - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl is-active  $REMOTE_APP_SVC_NAME >/dev/null 2>&1 && systemctl stop $REMOTE_APP_SVC_NAME || echo 'not running'"
   - echo 'Copy app to remote server...'
   - rsync -zaIvc --stats $CI_PROJECT_DIR/build/app/ $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_APP_BIN_PATH  
+  # - ssh $REMOTE_USER@$PROD_REMOTE_HOST "exit 1" && echo $?;  
   - ssh $REMOTE_USER@$PROD_REMOTE_HOST "chown -R www-data:www-data $REMOTE_APP_BIN_PATH" && echo $?;
  
   # https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?tabs=aspnetcore2x
   - echo 'Apply systemd service config...'
   - ssh $REMOTE_USER@$PROD_REMOTE_HOST "find $REMOTE_SYSTEMD_CONFIG -name '$REMOTE_APP_SVC_NAME' -exec rm {} \;";
   - scp $CI_PROJECT_DIR/build/config/$REMOTE_APP_SVC_NAME $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_SYSTEMD_CONFIG
+
   - echo 'Start app...'
+  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl enable $REMOTE_APP_SVC_NAME";
   - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl start $REMOTE_APP_SVC_NAME";
 
 deploy_prod_nginx_config:
