@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.IO;
+using Autofac;
 using nys.misc;
 using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;
@@ -46,5 +47,14 @@ namespace nys.selfhosted
             Logger.Debug("NancyFx: diagnostics is disabled");
             DiagnosticsHook.Disable(pipelines);
         }
+
+        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        {
+            base.ConfigureConventions(nancyConventions);
+
+            nancyConventions.StaticContentsConventions.Clear();
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("content"));
+        }
+
     }
 }
