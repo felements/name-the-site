@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "80:4455"
+      - "8085:4455"
     environment:
       - "VIRTUAL_HOST=name.aska.one"
       - "LETSENCRYPT_HOST=name.aska.one"
