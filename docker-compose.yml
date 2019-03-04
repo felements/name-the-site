@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  app:
+    container_name: nys-app
+    build:
+      context: ./sources
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:4455"
+    environment:
+      - "VIRTUAL_HOST=name.aska.one"
+      - "LETSENCRYPT_HOST=name.aska.one"
+      - "LETSENCRYPT_EMAIL=dmitry.mitichenko@gmail.com"
+    
+networks:
+    default:
+        external:
+            name: nginx-proxy

@@ -1,108 +1,24 @@
-variables:  
- REMOTE_NGINX_CONFIG: "/etc/nginx/sites-enabled/"
- REMOTE_NGINX_CONFIG_FILE: "name-your-site.conf"
- REMOTE_SYSTEMD_CONFIG: "/etc/systemd/system/"
- REMOTE_USER: "root"
-  
- REMOTE_APP_BIN_PATH: "/var/www/name-your-startup.site"  
- REMOTE_APP_SVC_NAME: "name-your-site.service"
- REMOTE_APP_LOGS_PATH: "/var/www/name-your-startup.site/logs"
- REMOTE_APP_SUPERVISOR: "name-your-site"
-
- PACKAGE_PATH: "/sources/nys.selfhosted/bin/Release/"
-
- # production
- PROD_CONFIG_DIR: "/deployment/production"
- PROD_REMOTE_HOST: "name-your-site.aska.one"
- PROD_REMOTE_APP_STATUS_CHECK_URL: "https://name-your-site.aska.one/"
-  
-   
 stages:
- - build 
+ - build
  - deploy
- - verify
 
-build:
+build_images:
  stage: build
+ tags:
+  - docker-compose
  only:
   - master
-  - develop
- tags: 
-  - mono
-  - deb
- before_script:
-  - echo 'Checking the requirements...'
-  - command -v mono >/dev/null 2>&1 || { echo >&2 "mono is required. Aborting."; exit 1; }
-  - command -v xbuild >/dev/null 2>&1 || { echo >&2 "xbuild is required. Aborting."; exit 1; }
-  - command -v nuget >/dev/null 2>&1 || { echo >&2 "nuget is required. Aborting."; exit 1; }
- script:  
-  - echo '- restore nuget packages'
-  - cd sources
-  - nuget restore -NonInteractive  
-  - echo '- build solution'
-  - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" nys.sln
-  - mkdir -p "$CI_PROJECT_DIR/build/app"
-  - mkdir -p "$CI_PROJECT_DIR/build/config"
-  - mv $CI_PROJECT_DIR$PACKAGE_PATH* $CI_PROJECT_DIR/build/app/
-  - cp $CI_PROJECT_DIR$PROD_CONFIG_DIR/* $CI_PROJECT_DIR/build/config/  
- artifacts:
-  name: "app_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}_${CI_BUILD_REF}"
-  when: on_success
-  expire_in: 1 week
-  paths:
-   - build/app
-   - build/config
+  - develop   
+ script:
+  - docker-compose build
+
 
 deploy_prod_app:
  stage: deploy
- only:
-  - master
  tags:
-  - deployment  
- environment: production
- script:
-  - echo 'Deployment of the main package started'
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl is-active  $REMOTE_APP_SVC_NAME >/dev/null 2>&1 && systemctl stop $REMOTE_APP_SVC_NAME || echo 'not running'"
-  - echo 'Copy app to remote server...'
-  - rsync -zaIvc --stats $CI_PROJECT_DIR/build/app/ $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_APP_BIN_PATH  
-  # - ssh $REMOTE_USER@$PROD_REMOTE_HOST "exit 1" && echo $?;  
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "chown -R www-data:www-data $REMOTE_APP_BIN_PATH" && echo $?;
- 
-  # https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?tabs=aspnetcore2x
-  - echo 'Apply systemd service config...'
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "find $REMOTE_SYSTEMD_CONFIG -name '$REMOTE_APP_SVC_NAME' -exec rm {} \;";
-  - scp $CI_PROJECT_DIR/build/config/$REMOTE_APP_SVC_NAME $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_SYSTEMD_CONFIG
-
-  - echo 'Start app...'
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl enable $REMOTE_APP_SVC_NAME";
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "systemctl start $REMOTE_APP_SVC_NAME";
-
-deploy_prod_nginx_config:
- stage: deploy
+  - docker-compose
+  - docker-deploy
  only:
-  - master
- tags:
-  - deployment  
- environment: production
+  - master 
  script:
-  - echo 'Apply nginx config...'
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "find $REMOTE_NGINX_CONFIG -name '$REMOTE_NGINX_CONFIG_FILE' -exec rm {} \;";
-  - scp $CI_PROJECT_DIR/build/config/$REMOTE_NGINX_CONFIG_FILE $REMOTE_USER@$PROD_REMOTE_HOST:$REMOTE_NGINX_CONFIG
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "nginx -t | grep -q 'is successful'"  && echo $?;
-  - ssh $REMOTE_USER@$PROD_REMOTE_HOST "service nginx restart";
-
-
-verify_api_status:
- stage: verify
- only:
-  - master
- tags:
-  - ssh
-  - mono
- environment: production
- script:
-  - echo 'Check if service returns 200 OK'
-  - curl --fail --location $PROD_REMOTE_APP_STATUS_CHECK_URL && echo $?
-
-
-   ## certbot certonly -a webroot --webroot-path=/var/www/name-your-startup.site  -d name-your-site.aska.one -d www.name-your-site.aska.one
+  - docker-compose up -d
