@@ -10,8 +10,7 @@ build_images:
   - master
   - develop   
  script:
-  - docker-compose build
-
+  - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
 
 deploy_prod_app:
  stage: deploy
@@ -21,4 +20,4 @@ deploy_prod_app:
  only:
   - master 
  script:
-  - docker-compose up -d
+  - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d

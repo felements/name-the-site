@@ -20,6 +20,10 @@ namespace nys.http
         private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost
                 .CreateDefaultBuilder(args)
+                .ConfigureLogging((hostingContext, logging) => {
+                    logging.AddConsole();
+                    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Debug);
+                })
                 .UseStartup<Startup>();
     }
 }

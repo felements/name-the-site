@@ -5,6 +5,9 @@ namespace nys.service.data.NameProvider
 {
     internal class StaticTitleProvider : INamePartProvider
     {
+        /// <summary>
+        /// Some failsafe predefined words from <see cref="https://en.oxforddictionaries.com/explore/weird-and-wonderful-words/"/>
+        /// </summary>
         private static readonly string[] Names =
         {
             "aa",

@@ -18,7 +18,7 @@ function load() {
 
 
     $.ajax({
-        url: "/api/v1/names?count=6",
+        url: "/api/v1/names?count=5",
         success: function(data){
             $.each(data, function( index, value ) {
                 $(".items-container").append("<p class='lead'>www.<b class='suggestion'>" + value + "</b></p>");

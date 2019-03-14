@@ -39,7 +39,7 @@ namespace nys.service.data.AvailabilityCheck
             }
 
             if (!result) _unavailableNames.Add(name);
-            _logger.LogDebug($"Domain {name}, is {(result ? "" : "NOT")} available.");
+            _logger.LogDebug($"Domain '{name}', is {(result ? "" : "NOT")} available.");
 
             return result;
         }
