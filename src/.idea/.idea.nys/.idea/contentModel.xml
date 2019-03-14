@@ -119,7 +119,6 @@
         </e>
       </e>
       <e p="nys.service.data" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="nys.service.data.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -129,7 +128,24 @@
             </e>
           </e>
         </e>
-        <e p="src" t="Include" />
+        <e p="src" t="Include">
+          <e p="ApiClient" t="Include" />
+          <e p="AvailabilityCheck" t="Include">
+            <e p="DnsResolverAvailabilityCheck.cs" t="Include" />
+            <e p="IAvailabilityStatusProvider.cs" t="Include" />
+          </e>
+          <e p="DataServiceExtensions.cs" t="Include" />
+          <e p="NameProvider" t="Include">
+            <e p="INamePartProvider.cs" t="Include" />
+            <e p="INameProvider.cs" t="Include" />
+            <e p="NamePartType.cs" t="Include" />
+            <e p="RandomNameLinker.cs" t="Include" />
+            <e p="SlangdefineTitleProvider.cs" t="Include" />
+            <e p="StaticDomainZoneProvider.cs" t="Include" />
+            <e p="StaticTitleProvider.cs" t="Include" />
+          </e>
+          <e p="Random.cs" t="Include" />
+        </e>
       </e>
       <e p="nys.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

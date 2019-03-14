@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using nys.service.data;
 
 namespace nys.http
 {
@@ -31,7 +32,7 @@ namespace nys.http
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddNameServices();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

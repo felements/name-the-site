@@ -1,5 +1,7 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using nys.service.data.NameProvider;
 
 namespace nys.http.Controllers
 {
@@ -8,12 +10,19 @@ namespace nys.http.Controllers
     [ApiController]
     public class NamesController: Controller
     {
-        [HttpGet]
-        public async Task<ActionResult<string>> GetAsync()
+        private readonly INameProvider _nameProvider;
+
+        public NamesController(INameProvider nameProvider)
         {
-            await Task.Delay(3);
+            _nameProvider = nameProvider;
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<string[]>> GetAsync(int? count, CancellationToken ct)
+        {
+            var data =  await _nameProvider.GetNext(count ?? 5, ct);
             
-            return Ok("hello.org");
+            return Ok(data);
         }
 
     }

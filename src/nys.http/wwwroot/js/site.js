@@ -15,14 +15,16 @@ $(document).ready(function () {
 
 function load() {
     $(".items-container").empty();
-    
-    for (var i = 0; i < 5; i++) {
 
-        $.ajax({
-            url: "/api/v1/names", 
-            success: function(data){
-                $(".items-container").append("<p class='lead'>www.<b class='suggestion'>" + data + "</b></p>");
-            }, 
-            cache: false});
-    }
+
+    $.ajax({
+        url: "/api/v1/names?count=6",
+        success: function(data){
+            $.each(data, function( index, value ) {
+                $(".items-container").append("<p class='lead'>www.<b class='suggestion'>" + value + "</b></p>");
+            });
+            
+        },
+        cache: false});
+    
 }
