@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nys.http", "nys.http\nys.http.csproj", "{601EB218-B378-4385-AFE6-FC863093861B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nys.service.data", "nys.service.data\nys.service.data.csproj", "{DF469C38-15CF-4992-9E6B-176668903373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{601EB218-B378-4385-AFE6-FC863093861B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601EB218-B378-4385-AFE6-FC863093861B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601EB218-B378-4385-AFE6-FC863093861B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601EB218-B378-4385-AFE6-FC863093861B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF469C38-15CF-4992-9E6B-176668903373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF469C38-15CF-4992-9E6B-176668903373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF469C38-15CF-4992-9E6B-176668903373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF469C38-15CF-4992-9E6B-176668903373}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
