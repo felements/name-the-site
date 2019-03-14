@@ -21,7 +21,7 @@ namespace nys.web.api.Services.WordVariants
         private static readonly Regex Expression = new Regex("\"list-group-item\"\\>\\d+\\.\\s+(?<word>\\w+\\s*\\w*)\\<", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
 
-        private static object _wordsLock = new object();
+        private static readonly object _wordsLock = new object();
         private static DateTime _wordsFetchTimeUtc = DateTime.UtcNow;
         private static List<string> _words = new List<string>(100);
         private const byte _wordsLifetimeHours = 12;

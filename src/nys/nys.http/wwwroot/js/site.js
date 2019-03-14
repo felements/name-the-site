@@ -1,0 +1,28 @@
+﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+$(document).ajaxStop(function () { $("#loadMore").text("Get more").prop("disabled", false); });
+$(document).ajaxStart(function () { $("#loadMore").text("We are thinking...").prop("disabled", true); });
+
+$(document).ready(function () {
+    load();
+    $("#loadMore").click(function() {
+        load();
+    });
+});
+
+function load() {
+    $(".items-container").empty();
+    
+    for (var i = 0; i < 5; i++) {
+
+        $.ajax({
+            url: "/api/v1/names", 
+            success: function(data){
+                $(".items-container").append("<p class='lead'>www.<b class='suggestion'>" + data + "</b></p>");
+            }, 
+            cache: false});
+    }
+}
