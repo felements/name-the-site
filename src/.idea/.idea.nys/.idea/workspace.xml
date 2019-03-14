@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1ffabed-6d05-4156-bb45-c57dada6712b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.nys/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nys.http/Controllers/NamesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../sources/.idea/.idea.nys/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../sources/.idea/.idea.nys/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../sources/nys.web.api/Services/WordVariants/SlangTitleService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../sources/nys.web.api/Services/WordVariants/SlangTitleService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="d1ffabed-6d05-4156-bb45-c57dada6712b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,12 +9,70 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Favicons.cshtml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="7" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+              <folding>
+                <marker date="1552569625903" expanded="true" signature="16:2344" ph="&lt;html.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="23:1144" ph="&lt;head.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="444:578" ph="&lt;environment.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="583:1084" ph="&lt;environment.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1145:2336" ph="&lt;body.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1152:1255" ph="&lt;div.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1183:1248" ph="&lt;div.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1258:1436" ph="&lt;environment.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1437:2221" ph="&lt;environment.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1477:1792" ph="&lt;script.../&gt;" />
+                <marker date="1552569625903" expanded="true" signature="1797:2206" ph="&lt;script.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nys.http/Controllers/HomeController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <marker date="1552568416593" expanded="false" signature="6:177" ph="..." />
+                <marker date="1552568416593" expanded="true" signature="209:625" ph="{...}" />
+                <marker date="1552568416593" expanded="true" signature="256:623" ph="{...}" />
+                <marker date="1552568416593" expanded="true" signature="299:346" ph="{...}" />
+                <marker date="1552568416593" expanded="true" signature="486:617" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nys.http/Controllers/NamesController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <marker date="1552569045380" expanded="false" signature="6:61" ph="..." />
+                <marker date="1552569045380" expanded="true" signature="93:424" ph="{...}" />
+                <marker date="1552569045380" expanded="true" signature="230:422" ph="{...}" />
+                <marker date="1552569045380" expanded="true" signature="313:415" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nys.service.data/Class1.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+              <folding>
+                <marker date="1552568731313" expanded="true" signature="41:283" ph="{...}" />
+                <marker date="1552568731313" expanded="true" signature="67:79" ph="{...}" />
+                <marker date="1552568731313" expanded="true" signature="84:281" ph="/* https://thoughtcatalog.com/erin-cossetta/2018/06/funny-words ... */" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -27,27 +80,26 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/nys.http/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Favicons.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nys.http/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.service.data/Class1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/nys.http/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nys.http/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nys.http/Controllers/NamesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.service.data/Class1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nys.http/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nys.http/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/nys.http/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/nys.http/Views/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/nys.http/Views/Home/Index.cshtml" />
@@ -58,6 +110,7 @@
         <option value="$PROJECT_DIR$/nys.http/wwwroot/css/cover.css" />
         <option value="$PROJECT_DIR$/nys.http/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/nys.http/Views/Shared/_Favicons.cshtml" />
+        <option value="$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml" />
       </list>
     </option>
   </component>
@@ -76,6 +129,7 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -91,52 +145,6 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Home" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Shared" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="wwwroot" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="wwwroot" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="css" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="nys.http" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="wwwroot" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="js" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="nys" type="24d0babc:SolutionExplorerModelNode" />
               <item name="nys.service.data" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
@@ -144,7 +152,6 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -153,6 +160,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -186,12 +194,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552567157615</updated>
-      <workItem from="1552567159714" duration="2306000" />
+      <workItem from="1552567159714" duration="2580000" />
+      <workItem from="1552569769481" duration="163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2306000" />
+    <option name="totallyTimeSpent" value="2743000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -204,20 +213,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="27" width="1857" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958587" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25234678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" weight="0.3293348" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="REST Client" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Build" weight="0.3293348" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -225,18 +227,31 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3293348" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Unit Tests" order="10" />
+      <window_info anchor="bottom" id="REST Client" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="14" weight="0.3293348" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -292,9 +307,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/Views/Home/Privacy.cshtml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nys.http/Views/Home/Privacy.cshtml" />
     <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/Error.cshtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -328,27 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
-          <folding>
-            <marker date="1552568427973" expanded="true" signature="16:2643" ph="&lt;html.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="23:1112" ph="&lt;head.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="412:546" ph="&lt;environment.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="551:1052" ph="&lt;environment.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1113:2635" ph="&lt;body.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1120:1223" ph="&lt;div.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1151:1216" ph="&lt;div.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1232:1475" ph="@*...*@" />
-            <marker date="1552568427973" expanded="true" signature="1481:1671" ph="&lt;environment.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1676:2512" ph="&lt;environment.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="1720:2055" ph="&lt;script.../&gt;" />
-            <marker date="1552568427973" expanded="true" signature="2064:2493" ph="&lt;script.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nys.http/Models/ErrorViewModel.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -360,25 +352,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_CookieConsentPartial.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nys.service.data/Class1.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-          <folding>
-            <marker date="1552568731313" expanded="true" signature="41:283" ph="{...}" />
-            <marker date="1552568731313" expanded="true" signature="67:79" ph="{...}" />
-            <marker date="1552568731313" expanded="true" signature="84:281" ph="/* https://thoughtcatalog.com/erin-cossetta/2018/06/funny-words ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_CookieConsentPartial.cshtml" />
     <entry file="file://$PROJECT_DIR$/nys.http/wwwroot/js/site.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -404,6 +378,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nys.http/wwwroot/css/cover.css" />
+    <entry file="file://$PROJECT_DIR$/nys.http/wwwroot/css/site.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="166" column="1" lean-forward="true" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Favicons.cshtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Layout.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding>
+            <marker date="1552569625903" expanded="true" signature="16:2344" ph="&lt;html.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="23:1144" ph="&lt;head.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="444:578" ph="&lt;environment.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="583:1084" ph="&lt;environment.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1145:2336" ph="&lt;body.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1152:1255" ph="&lt;div.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1183:1248" ph="&lt;div.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1258:1436" ph="&lt;environment.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1437:2221" ph="&lt;environment.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1477:1792" ph="&lt;script.../&gt;" />
+            <marker date="1552569625903" expanded="true" signature="1797:2206" ph="&lt;script.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nys.http/Controllers/HomeController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -420,10 +425,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nys.http/Controllers/NamesController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        <state relative-caret-position="324">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
-            <marker date="1552569045380" expanded="true" signature="6:61" ph="..." />
+            <marker date="1552569045380" expanded="false" signature="6:61" ph="..." />
             <marker date="1552569045380" expanded="true" signature="93:424" ph="{...}" />
             <marker date="1552569045380" expanded="true" signature="230:422" ph="{...}" />
             <marker date="1552569045380" expanded="true" signature="313:415" ph="{...}" />
@@ -431,20 +436,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/wwwroot/css/cover.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/wwwroot/css/site.css">
+    <entry file="file://$PROJECT_DIR$/nys.service.data/Class1.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="166" column="1" lean-forward="true" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nys.http/Views/Shared/_Favicons.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="7" selection-end-column="13" />
+        <state relative-caret-position="144">
+          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+          <folding>
+            <marker date="1552568731313" expanded="true" signature="41:283" ph="{...}" />
+            <marker date="1552568731313" expanded="true" signature="67:79" ph="{...}" />
+            <marker date="1552568731313" expanded="true" signature="84:281" ph="/* https://thoughtcatalog.com/erin-cossetta/2018/06/funny-words ... */" />
+          </folding>
         </state>
       </provider>
     </entry>
