@@ -13,7 +13,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="src\ApiClient" />
+      <Compile Remove="src\ApiClient\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="src\ApiClient\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="src\ApiClient\**" />
     </ItemGroup>
 
 </Project>
