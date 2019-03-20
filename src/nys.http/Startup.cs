@@ -27,7 +27,7 @@ namespace nys.http
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddNameServices();
+            services.AddNameSuggestionServices();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

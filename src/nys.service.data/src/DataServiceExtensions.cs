@@ -8,7 +8,7 @@ namespace nys.service.data
 {
     public static class DataServiceExtensions
     {
-        public static void AddNameServices(this IServiceCollection services)
+        public static void AddNameSuggestionServices(this IServiceCollection services)
         {
             services.AddSingleton<IAvailabilityStatusProvider, DnsResolverAvailabilityCheck>();
             
